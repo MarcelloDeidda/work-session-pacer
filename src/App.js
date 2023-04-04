@@ -1,11 +1,12 @@
 import { React, useState } from "react";
 import Info from "./components/Info";
+import Options from "./components/Options";
 
 const root = document.getElementById("root");
 
 function App() {
   const [sessionHasStarted, setSessionHasStarted] = useState(false);
-  const [timers, setTimers] = useState({ workTimer: 60 * 25, breakTimer: 60 * 5 });
+  const [timers, setTimers] = useState({ focusTimer: 60 * 25, breakTimer: 60 * 5 });
 
   const sessionSwitchHandler = e => {
     e.preventDefault();
@@ -28,12 +29,13 @@ function App() {
       Studysection
     </p>
   } else {
-    return <p
+    return <Options
       onSessionSwitch={sessionSwitchHandler}
       onTimerChange={timerChangeHandler}
+      timers={timers}
     >
-      Options + Info
-    </p>
+      <Info />
+    </Options>
   }
 }
 
