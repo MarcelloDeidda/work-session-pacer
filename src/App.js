@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import { React, useState } from "react";
+import Info from "./components/Info";
+
+const root = document.getElementById("root");
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [sessionHasStarted, setSessionHasStarted] = useState(false);
+  const [timers, setTimers] = useState({ workTimer: 60 * 25, breakTimer: 60 * 5 });
+
+  const sessionSwitchHandler = e => {
+    e.preventDefault();
+    root.style.opacity = "0";
+    setTimeout(() => {
+      setSessionHasStarted(prevState => !prevState);
+      root.style.opacity = "1";
+    }, 1000);
+  }
+
+  const timerChangeHandler = newLength => {
+    setTimers(newLength);
+  }
+
+  if (sessionHasStarted) {
+    return <p
+      onSessionSwitch={sessionSwitchHandler}
+      timers={timers}
+    >
+      Studysection
+    </p>
+  } else {
+    return <p
+      onSessionSwitch={sessionSwitchHandler}
+      onTimerChange={timerChangeHandler}
+    >
+      Options + Info
+    </p>
+  }
 }
 
 export default App;
