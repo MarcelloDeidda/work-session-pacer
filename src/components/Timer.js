@@ -3,19 +3,20 @@ import "./Timer.css";
 
 const Timer = props => {
     const [secondsLeft, setSecondsLeft] = useState(props.timers.focusTimer);
-    const clong = new Audio("./assets/clong.mp3");
-    const tick = new Audio("./assets/clock-tick.mp3");
+    const tick = document.getElementById("clock-tick");
 
     useEffect(() => {
         let interval = null;
 
         if (secondsLeft <= 0 & props.timerOn) {
-            if (props.audioOn) { clong.play(); }
             props.onModeToggle();
             return;
         } else if (props.timerOn) {
             interval = setInterval(() => {
-                if ((secondsLeft <= 6 && secondsLeft > 1) && props.audioOn) { tick.play() };
+                if ((secondsLeft <= 6 && secondsLeft > 1) && props.audioOn) { 
+                    tick.muted = false;
+                    tick.play()
+                 };
                 setSecondsLeft(prevState => prevState - 1);
             }, 1000);
         } else {
@@ -52,6 +53,8 @@ const Timer = props => {
             <button className={stopButtonClass} onClick={props.onSessionSwitch}>STOP SESSION</button>
             <button className={audioButtonClass} onClick={props.onAudioToggle}>{audioButton}</button>
         </div>
+        <audio src="./assets/clong.mp3" autoPlay></audio>
+        <audio src="./assets/clock-tick.mp3" id="clock-tick" autoPlay muted></audio>
     </div>
 }
 
