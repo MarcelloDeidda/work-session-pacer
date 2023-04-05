@@ -21,7 +21,7 @@ const Options = props => {
         });
     }
 
-    const audioButton = props.audioOn ? <i class="fa-solid fa-volume-high"></i> : <i class="fa-solid fa-volume-xmark"></i>;
+    const audioButton = props.audioOn ? <i className="fa-solid fa-volume-high"></i> : <i className="fa-solid fa-volume-xmark"></i>;
     const audioButtonClass = `btn btn-${!props.audioOn ? "outline-" : ""}primary col-2`
 
     return <>
