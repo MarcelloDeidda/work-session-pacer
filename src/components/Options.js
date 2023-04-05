@@ -7,7 +7,7 @@ const Options = props => {
         props.onTimerChange(prevState => {
             return {
                 ...prevState,
-                focusTimer: e.target.value > 60 || e.target.value < 1 ? prevState.focusTimer : e.target.value * 60
+                focusTimer: e.target.value * 60
             }
         });
     }
@@ -17,7 +17,7 @@ const Options = props => {
         props.onTimerChange(prevState => {
             return {
                 ...prevState,
-                breakTimer: e.target.value > 60 || e.target.value < 1 ? prevState.breakTimer : e.target.value * 60
+                breakTimer: e.target.value * 60
             }
         });
     }
