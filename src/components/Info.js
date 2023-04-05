@@ -2,13 +2,15 @@ import { React } from "react";
 
 const Info = props => {
     return <>
-        <div>
-            <h1>
+        <div className="w-50 p-5">
+            <h1 className="display-3">
                 Work Session Pacer
-                <button type="button" class="btn btn-dark ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal">i</button>
+                <button type="button" className="btn btn-dark ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <i class="fa-solid fa-circle-info"></i>
+                </button>
             </h1>
-            <p>Improve your focus with Pomodoro method!</p>
-            <p>This app will help you manage your work/study sessions by alternating a long focus timer, with a short break timer. Select the timer length and start working now!</p>
+            <p className="fs-4">Improve your focus with Pomodoro method!</p>
+            <p className="fs-5">This app will help you manage your work/study sessions by alternating a long focus timer, with a short break timer. Select the timer length and start working now!</p>
         </div>
         {props.children}
     </>

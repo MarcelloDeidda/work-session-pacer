@@ -1,0 +1,8 @@
+* {
+    font-family: Abel, sans-serif;
+}
+
+#root {
+    transition: 500ms;
+    background-color: #F2FEFF
+}
