@@ -4,11 +4,32 @@
 
 #root {
     transition: 500ms;
-    background-color: #F2FEFF
+}
+
+@media (min-width: 992px) {
+    #root {
+        background-color: #F2FEFF
+    }
 }
 
 @media (max-width: 991px) {
     #root {
         flex-direction: column;
+    }
+
+    .options-background {
+        background-color: #F2FEFF
+    }
+
+    .focus-background {
+        background-image: url(./assets/focus-background.jpeg);
+        background-position: bottom;
+        background-size: cover;
+    }
+
+    .break-background {
+        background-image: url(./assets/break-background.jpeg);
+        background-position: bottom;
+        background-size: cover;
     }
 }

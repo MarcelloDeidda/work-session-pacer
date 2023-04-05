@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import Info from "./components/Info";
 import InfoModal from "./components/InfoModal";
 import Options from "./components/Options";
@@ -28,6 +28,13 @@ function App() {
     e.preventDefault();
     setAudioOn(prevState => !prevState);
   }
+
+  useEffect(() => {
+    root.classList.remove("options-background");
+    root.classList.remove("focus-background");
+    root.classList.remove("break-background");
+    root.classList.add(sessionHasStarted ? "focus-background" : "options-background");
+  }, [sessionHasStarted]);
 
   if (sessionHasStarted) {
     return <StudySection

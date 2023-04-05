@@ -17,7 +17,7 @@ const Timer = props => {
             interval = setInterval(() => {
                 if ((secondsLeft <= 6 && secondsLeft > 1) && props.audioOn) { tick.play() };
                 setSecondsLeft(prevState => prevState - 1);
-            }, 100);
+            }, 1000);
         } else {
             clearInterval(interval);
         }
@@ -43,7 +43,7 @@ const Timer = props => {
     const backgroundClass = !props.timerOn ? "pauseTimer" : props.focusMode ? "focusTimer" : "breakTimer";
     const lowTimerClass = (timerMinutes === 0 && timerSeconds <= 5) ? (props.focusMode ? "text-danger" : "text-success") : "";
 
-    return <div className={"w-50 h-100 d-flex flex-column justify-content-center align-items-center " + backgroundClass}>
+    return <div className={"d-flex flex-column justify-content-center align-items-center " + backgroundClass} id="timer-section">
         <p className="fs-1">{title}</p>
         <p className="fs-5 text-center">{subtitle}</p>
         <p className={"display-1 " + lowTimerClass} id="timer-display">{timerMinutes < 10 ? "0" : ""}{timerMinutes}:{timerSeconds < 10 ? "0" : ""}{timerSeconds}</p>
@@ -53,7 +53,6 @@ const Timer = props => {
             <button className={audioButtonClass} onClick={props.onAudioToggle}>{audioButton}</button>
         </div>
     </div>
-
 }
 
 export default Timer;

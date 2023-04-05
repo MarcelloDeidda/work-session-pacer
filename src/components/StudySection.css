@@ -9,3 +9,9 @@
     background-position: bottom;
     background-size: cover;
 }
+
+@media (max-width: 991px) {
+    #focus-background, #break-background {
+        display: none;
+    }
+}

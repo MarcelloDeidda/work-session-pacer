@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import Timer from "./Timer";
 import "./StudySection.css";
 
@@ -23,6 +23,12 @@ const StudySection = props => {
     const timerToggleHandler = () => {
         setTimerOn(prevState => !prevState);
     }
+
+    useEffect(() => {
+        root.classList.remove("focus-background");
+        root.classList.remove("break-background");
+        root.classList.add(focusMode ? "focus-background" : "break-background");
+    }, [focusMode]);
 
     if (focusMode) {
         return <>
