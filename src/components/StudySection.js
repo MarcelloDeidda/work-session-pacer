@@ -1,5 +1,6 @@
 import { React, useState } from "react";
 import Timer from "./Timer";
+import "./StudySection.css";
 
 const root = document.getElementById("root");
 
@@ -25,7 +26,7 @@ const StudySection = props => {
 
     if (focusMode) {
         return <>
-            <div id="focus-background"></div>
+            <div className="w-50 h-100" id="focus-background"></div>
             <Timer
                 focusMode={focusMode}
                 timers={props.timers}
@@ -45,7 +46,7 @@ const StudySection = props => {
                 onSessionSwitch={props.onSessionSwitch}
                 timerOn={timerOn}
             />
-            <div id="break-background"></div>
+            <div className="w-50 h-100" id="break-background"></div>
         </>
     }
 }

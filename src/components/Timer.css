@@ -1,0 +1,15 @@
+#timer-display {
+  font-family: "Cutive Mono", monospace;
+}
+
+.focusTimer {
+  background-color: #FFECEC;
+}
+
+.breakTimer {
+  background-color: #EDFFEA;
+}
+
+.pauseTimer {
+  background-color: #F1F1F1;
+}
