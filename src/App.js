@@ -1,6 +1,7 @@
 import { React, useState } from "react";
 import Info from "./components/Info";
 import Options from "./components/Options";
+import StudySection from "./components/StudySection";
 
 const root = document.getElementById("root");
 
@@ -22,15 +23,13 @@ function App() {
   }
 
   if (sessionHasStarted) {
-    return <p
-      onSessionSwitch={sessionSwitchHandler}
+    return <StudySection
+      onSwitchSession={sessionSwitchHandler}
       timers={timers}
-    >
-      Studysection
-    </p>
+    />
   } else {
     return <Options
-      onSessionSwitch={sessionSwitchHandler}
+      onSwitchSession={sessionSwitchHandler}
       onTimerChange={timerChangeHandler}
       timers={timers}
     >

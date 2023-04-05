@@ -30,7 +30,7 @@ const Options = props => {
             <p>Improve your focus with Pomodoro method!</p>
             <p>This app will help you manage your work/study sessions by alternating a long focus timer, with a short break timer. Select the timer length and start working now!</p>
         </div>
-        <form onSubmit={props.onSessionSwitch}>
+        <form onSubmit={props.onSwitchSession}>
             <div>
                 <label forHTML="focus-timer">Focus Timer</label>
                 <input onChange ={focusTimerChangeHandler} type="number" id="focus-timer" min={1} max={60} value={Math.floor(props.timers.focusTimer / 60 )} />
