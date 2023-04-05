@@ -1,5 +1,6 @@
 import { React, useState } from "react";
 import Info from "./components/Info";
+import InfoModal from "./components/InfoModal";
 import Options from "./components/Options";
 import StudySection from "./components/StudySection";
 
@@ -24,17 +25,21 @@ function App() {
 
   if (sessionHasStarted) {
     return <StudySection
-      onSwitchSession={sessionSwitchHandler}
+      onSessionSwitch={sessionSwitchHandler}
       timers={timers}
     />
   } else {
-    return <Options
-      onSwitchSession={sessionSwitchHandler}
-      onTimerChange={timerChangeHandler}
-      timers={timers}
-    >
-      <Info />
-    </Options>
+    return <>
+      <Info>
+        <InfoModal />
+      </Info >
+      <Options
+        onSessionSwitch={sessionSwitchHandler}
+        onTimerChange={timerChangeHandler}
+        timers={timers}
+      >
+      </Options>
+    </>
   }
 }
 

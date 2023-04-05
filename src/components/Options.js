@@ -22,15 +22,7 @@ const Options = props => {
     }
 
     return <>
-        <div>
-            <h1>
-                Work Session Pacer
-                <button type="button" class="btn btn-dark ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal">i</button>
-            </h1>
-            <p>Improve your focus with Pomodoro method!</p>
-            <p>This app will help you manage your work/study sessions by alternating a long focus timer, with a short break timer. Select the timer length and start working now!</p>
-        </div>
-        <form onSubmit={props.onSwitchSession}>
+        <form onSubmit={props.onSessionSwitch}>
             <div>
                 <label forHTML="focus-timer">Focus Timer</label>
                 <input onChange ={focusTimerChangeHandler} type="number" id="focus-timer" min={1} max={60} value={Math.floor(props.timers.focusTimer / 60 )} />
@@ -41,7 +33,6 @@ const Options = props => {
             </div>
             <button type="submit">START SESSION</button>
         </form>
-        {props.children}
     </>
 }
 

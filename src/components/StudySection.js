@@ -1,4 +1,5 @@
 import { React, useState } from "react";
+import Timer from "./Timer";
 
 const root = document.getElementById("root");
 
@@ -25,16 +26,26 @@ const StudySection = props => {
     if (focusMode) {
         return <>
             <div id="focus-background"></div>
-            <p
+            <Timer
                 focusMode={focusMode}
                 timers={props.timers}
-                onToggleMode={modeToggleHandler}
+                onModeToggle={modeToggleHandler}
                 onTimerChange={timerToggleHandler}
-                onSwitchSession={props.onSwitchSession}
+                onSessionSwitch={props.onSessionSwitch}
                 timerOn={timerOn}
-                >
-                    Timer
-                </p>
+            />
+        </>
+    } else {
+        return <>
+            <Timer
+                focusMode={focusMode}
+                timers={props.timers}
+                onModeToggle={modeToggleHandler}
+                onTimerChange={timerToggleHandler}
+                onSessionSwitch={props.onSessionSwitch}
+                timerOn={timerOn}
+            />
+            <div id="break-background"></div>
         </>
     }
 }

@@ -1,18 +1,17 @@
-const Info = () => {
-    return <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-dark">
-                <h1 class="modal-title fs-5 text-light" id="exampleModalLabel">App Info</h1>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body py-4">
-                <p class="fs-6 mb-1 text-center">This app was developed by <a style={{color: "black"}} href="https://marcellodeidda.github.io/" target="_blank">Marcello Deidda</a>, using React.js.</p>
-                <p class="fs-6 mb-1 text-center">Credit for the pictures go to <a style={{color: "black"}} href="https://unsplash.com/@talesbyjen" target="_blank">Jen P.</a> and <a style={{color: "black"}} href="https://unsplash.com/@andriklangfield" target="_blank">Andrik Langfield</a>.</p>
-            </div>
+import { React } from "react";
+
+const Info = props => {
+    return <>
+        <div>
+            <h1>
+                Work Session Pacer
+                <button type="button" class="btn btn-dark ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal">i</button>
+            </h1>
+            <p>Improve your focus with Pomodoro method!</p>
+            <p>This app will help you manage your work/study sessions by alternating a long focus timer, with a short break timer. Select the timer length and start working now!</p>
         </div>
-    </div>
-</div>
+        {props.children}
+    </>
 }
 
 export default Info;
