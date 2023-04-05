@@ -17,7 +17,7 @@ const Timer = props => {
             interval = setInterval(() => {
                 if ((secondsLeft <= 6 && secondsLeft > 1) && props.audioOn) { tick.play() };
                 setSecondsLeft(prevState => prevState - 1);
-            }, 1000);
+            }, 100);
         } else {
             clearInterval(interval);
         }
@@ -45,7 +45,7 @@ const Timer = props => {
 
     return <div className={"w-50 h-100 d-flex flex-column justify-content-center align-items-center " + backgroundClass}>
         <p className="fs-1">{title}</p>
-        <p className="fs-4">{subtitle}</p>
+        <p className="fs-5 text-center">{subtitle}</p>
         <p className={"display-1 " + lowTimerClass} id="timer-display">{timerMinutes < 10 ? "0" : ""}{timerMinutes}:{timerSeconds < 10 ? "0" : ""}{timerSeconds}</p>
         <div className="btn-group col-12 px-5" role="group">
             <button className={pauseButtonClass} onClick={props.onTimerChange}>{props.timerOn ? "PAUSE" : "START"}</button>

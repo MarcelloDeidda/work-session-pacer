@@ -6,3 +6,9 @@
     transition: 500ms;
     background-color: #F2FEFF
 }
+
+@media (max-width: 991px) {
+    #root {
+        flex-direction: column;
+    }
+}

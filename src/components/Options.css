@@ -1,0 +1,15 @@
+#options {
+    width: 25%;
+}
+
+@media (max-width: 991px) {
+    #options {
+        width: 75%;
+    }
+}
+
+@media (max-width: 767px) {
+    #options {
+        width: 100%;
+    }
+}

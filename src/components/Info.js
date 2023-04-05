@@ -1,8 +1,9 @@
 import { React } from "react";
+import "./Info.css";
 
 const Info = props => {
     return <>
-        <div className="w-50 p-5">
+        <div className="p-4 p-xxl-5" id="info">
             <h1 className="display-3">
                 Work Session Pacer
                 <button type="button" className="btn btn-dark ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
