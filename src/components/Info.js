@@ -6,7 +6,7 @@ const Info = props => {
             <h1 className="display-3">
                 Work Session Pacer
                 <button type="button" className="btn btn-dark ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <i class="fa-solid fa-circle-info"></i>
+                <i className="fa-solid fa-circle-info"></i>
                 </button>
             </h1>
             <p className="fs-4">Improve your focus with Pomodoro method!</p>

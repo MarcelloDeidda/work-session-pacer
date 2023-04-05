@@ -7,13 +7,15 @@ const Timer = props => {
     useEffect(() => {
         let interval = null;
 
-        if (secondsLeft === 0 & props.timerOn) {
+        if (secondsLeft <= 0 & props.timerOn) {
+            const clong = new Audio("./assets/clong.mp3").play()
             props.onModeToggle();
             return;
         } else if (props.timerOn) {
             interval = setInterval(() => {
+                if (secondsLeft <= 6 && secondsLeft > 1) { const tick = new Audio("./assets/clock-tick.mp3").play() };
                 setSecondsLeft(prevState => prevState - 1);
-            }, 100);
+            }, 900);
         } else {
             clearInterval(interval);
         }
@@ -30,12 +32,12 @@ const Timer = props => {
 
     const title = `Time to ${props.focusMode ? "focus" : "rest"}!`
     const subtitle = props.focusMode ? "Turn off notifications and focus. Don't forget to drink water regularly." : "Stand up, do some stretching, make yourself some tea and relax."
-    
-    const pauseButtonClass =  `btn btn-${props.timerOn ? "outline-" : ""}dark col-6`;
+
+    const pauseButtonClass = `btn btn-${props.timerOn ? "outline-" : ""}dark col-6`;
     const stopButtonClass = `btn btn-outline-${props.focusMode ? "danger" : "success"} col-6`;
     const backgroundClass = !props.timerOn ? "pauseTimer" : props.focusMode ? "focusTimer" : "breakTimer";
     const lowTimerClass = (timerMinutes === 0 && timerSeconds <= 5) ? (props.focusMode ? "text-danger" : "text-success") : "";
-    
+
     return <div className={"w-50 h-100 d-flex flex-column justify-content-center align-items-center " + backgroundClass}>
         <p className="fs-1">{title}</p>
         <p className="fs-4">{subtitle}</p>
