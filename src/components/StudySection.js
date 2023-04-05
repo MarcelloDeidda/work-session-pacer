@@ -34,6 +34,8 @@ const StudySection = props => {
                 onTimerChange={timerToggleHandler}
                 onSessionSwitch={props.onSessionSwitch}
                 timerOn={timerOn}
+                audioOn={props.audioOn}
+                onAudioToggle={props.onAudioToggle}
             />
         </>
     } else {
@@ -45,6 +47,8 @@ const StudySection = props => {
                 onTimerChange={timerToggleHandler}
                 onSessionSwitch={props.onSessionSwitch}
                 timerOn={timerOn}
+                audioOn={props.audioOn}
+                onAudioToggle={props.onAudioToggle}
             />
             <div className="w-50 h-100" id="break-background"></div>
         </>
