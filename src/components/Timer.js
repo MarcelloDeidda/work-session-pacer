@@ -15,7 +15,7 @@ const Timer = props => {
             interval = setInterval(() => {
                 if ((secondsLeft <= 6 && secondsLeft > 1) && props.audioOn) { const tick = new Audio("./assets/clock-tick.mp3").play() };
                 setSecondsLeft(prevState => prevState - 1);
-            }, 900);
+            }, 1000);
         } else {
             clearInterval(interval);
         }
