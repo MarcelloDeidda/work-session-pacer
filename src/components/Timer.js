@@ -3,7 +3,6 @@ import "./Timer.css";
 
 const Timer = props => {
     const [secondsLeft, setSecondsLeft] = useState(props.timers.focusTimer);
-    const tick = document.getElementById("clock-tick");
 
     useEffect(() => {
         let interval = null;
@@ -12,12 +11,11 @@ const Timer = props => {
             props.onModeToggle();
             return;
         } else if (props.timerOn) {
+            const now = Date.now();
+            const end = now + secondsLeft * 1000;
+            
             interval = setInterval(() => {
-                if ((secondsLeft <= 6 && secondsLeft > 1) && props.audioOn) { 
-                    tick.muted = false;
-                    tick.play()
-                 };
-                setSecondsLeft(prevState => prevState - 1);
+                setSecondsLeft(Math.round((end - Date.now()) / 1000));
             }, 1000);
         } else {
             clearInterval(interval);
@@ -54,7 +52,6 @@ const Timer = props => {
             <button className={audioButtonClass} onClick={props.onAudioToggle}>{audioButton}</button>
         </div>
         <audio src="./assets/clong.mp3" autoPlay></audio>
-        <audio src="./assets/clock-tick.mp3" id="clock-tick" autoPlay muted></audio>
     </div>
 }
 
