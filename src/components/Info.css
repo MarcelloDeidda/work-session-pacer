@@ -2,6 +2,11 @@
     width: 50%;
 }
 
+#info-text-page {
+    display: block;
+}
+
+
 @media (max-width: 1220px) {
     #info {
         width: 75%;
@@ -11,6 +16,10 @@
 @media (max-width: 991px) {
     #info {
         text-align: center;
+    }
+
+    #info-text-page {
+        display: none;
     }
 }
 

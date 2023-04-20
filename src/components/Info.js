@@ -11,7 +11,7 @@ const Info = props => {
                 </button>
             </h1>
             <p className="fs-4">Improve your focus with Pomodoro method!</p>
-            <p className="fs-5">This app will help you manage your work/study sessions by alternating a long focus timer, with a short break timer. Select the timer length and start working now!</p>
+            <p id="info-text-page" className="fs-5">This app will help you manage your work/study sessions by alternating a long focus timer, with a short break timer. Select the timer length and start working now!</p>
         </div>
         {props.children}
     </>

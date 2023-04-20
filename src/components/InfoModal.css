@@ -1,0 +1,10 @@
+#info-text-modal {
+    display: none;
+}
+
+@media (max-width: 991px) {
+    #info-text-modal {
+        display: block;
+    }
+}
+
